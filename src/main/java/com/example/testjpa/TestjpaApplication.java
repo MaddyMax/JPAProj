@@ -15,9 +15,9 @@ public class TestjpaApplication {
 		SpringApplication.run(TestjpaApplication.class, args);
 
 
-		Employee employee=  new Employee();
-		employee.setId(1L);
-		employee.setName("maddy");
+//		Employee employee=  new Employee();
+//		employee.setId(1L);
+//		employee.setName("maddy");
 
 	}
 }
