@@ -10,8 +10,7 @@ import javax.persistence.Persistence;
 
 @SpringBootApplication
 public class TestjpaApplication {
-	@Autowired
-	public static EmpRepo repo;
+
 	public static void main(String[] args) {
 		SpringApplication.run(TestjpaApplication.class, args);
 
@@ -20,7 +19,5 @@ public class TestjpaApplication {
 		employee.setId(1L);
 		employee.setName("maddy");
 
-		repo.save(employee);
-		System.out.println("JPA Creation Done");
 	}
 }
