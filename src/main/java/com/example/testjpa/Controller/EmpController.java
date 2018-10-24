@@ -1,4 +1,4 @@
-package Controller;
+package com.example.testjpa.Controller;
 
 import com.example.testjpa.EmpRepo;
 import com.example.testjpa.Employee;
