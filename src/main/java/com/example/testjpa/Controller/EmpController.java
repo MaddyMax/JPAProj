@@ -15,9 +15,9 @@ public class EmpController {
     @Autowired
     public EmpRepo repo;
 
-    @GetMapping("/b")
-    public String retriveAllEmployee(){
+    @GetMapping("/b/{name}")
+    public String retriveAllEmployee(String name){
         System.out.println("---- JPA Executed -----");
-        return "Hello";
+        return name;
     }
 }
