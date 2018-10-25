@@ -14,9 +14,12 @@ public class EmpController {
     @Autowired
     public EmpRepo repo;
 
-    @GetMapping("/{id}/{name}")
-    public String retriveAllEmployee(@PathVariable Long id , @PathVariable String name){
-//    public String retriveAllEmployee(){
+    @GetMapping("/save")
+//    public String retriveAllEmployee(@PathVariable Long id , @PathVariable String name){
+    public String retriveAllEmployee(
+            @RequestBody String name,
+            @RequestBody Long id
+    ){
         System.out.println("---- JPA Executed -----");
         Employee employee = new Employee();
         employee.setName(name);
