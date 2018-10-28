@@ -1,11 +1,13 @@
 package com.example.testjpa.Controller;
 
-import com.example.testjpa.EmpRepo;
-import com.example.testjpa.Employee;
+import com.example.testjpa.Entity.Teachers;
+import com.example.testjpa.Repository.EmpRepo;
+import com.example.testjpa.Entity.Employee;
+import com.example.testjpa.Entity.Student;
+import com.example.testjpa.Repository.SchoolRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -13,6 +15,29 @@ import java.util.Optional;
 public class EmpController {
     @Autowired
     public EmpRepo repo;
+
+    @Autowired
+    public SchoolRep schoolRep;
+
+    @GetMapping("/school/student/{id}/{name}/{standard}")
+    public String schoolEntity(@PathVariable Long id,
+                               @PathVariable String name,
+                               @PathVariable String standard){
+
+        Student student = new Student(id,name,standard);
+        schoolRep.save(student);
+        return "student saved";
+
+    }
+
+    @GetMapping("/school/teacher/{id}/{name}/{subject}")
+    public String teacherEntity(Long id, String name, String subject){
+
+        Teachers teachers = new Teachers(id, name, subject);
+        schoolRep.save(teachers);
+
+        return "teachers saved";
+    }
 
     @GetMapping("/save")
 //    public String retriveAllEmployee(@PathVariable Long id , @PathVariable String name){
